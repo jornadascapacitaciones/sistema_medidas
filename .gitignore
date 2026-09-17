@@ -1,0 +1,53 @@
+# ============================================
+# CREDENCIALES Y CONFIGURACIÓN LOCAL
+# ============================================
+config.php
+conexion.php
+conexion/
+*.env
+.env
+config.ini
+*.key
+
+# ============================================
+# DATOS SENSIBLES (PDFs con datos de personas)
+# ============================================
+archivos/
+
+# ============================================
+# DEPENDENCIAS (se regeneran con composer install)
+# ============================================
+vendor/
+bin/composer.phar
+node_modules/
+
+# ============================================
+# ARCHIVOS DE PRUEBA / TEMPORALES
+# ============================================
+test_*.php
+*_test.php
+*.tmp
+*.bak
+*~
+*.log
+logs/
+
+# ============================================
+# SISTEMA OPERATIVO
+# ============================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ============================================
+# EDITORES
+# ============================================
+.vscode/
+.idea/
+*.sublime-*
+
+# ============================================
+# UPLOADS TEMPORALES
+# ============================================
+uploads/
+cache/

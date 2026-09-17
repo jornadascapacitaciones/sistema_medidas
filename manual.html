@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Manual de Usuario - Sistema Medidas</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-size: 11pt;
+    line-height: 1.6;
+    color: #1f2937;
+    background: #f3f4f6;
+}
+
+/* ============================================================
+   PORTADA
+   ============================================================ */
+
+.portada {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    page-break-after: always;
+}
+
+.portada-content {
+    text-align: center;
+    max-width: 600px;
+}
+
+.portada-logo {
+    font-size: 80px;
+    margin-bottom: 30px;
+}
+
+.portada h1 {
+    font-size: 42pt;
+    font-weight: bold;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.portada h2 {
+    font-size: 20pt;
+    font-weight: normal;
+    margin-bottom: 50px;
+    opacity: 0.95;
+}
+
+.portada-info {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 40px;
+    text-align: left;
+    font-size: 13pt;
+}
+
+.portada-info p {
+    margin: 8px 0;
+}
+
+.portada-info strong {
+    display: inline-block;
+    min-width: 130px;
+}
+
+/* ============================================================
+   CONTENIDO GENERAL
+   ============================================================ */
+
+.contenido {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    background: white;
+}
+
+/* ============================================================
+   ÍNDICE
+   ============================================================ */
+
+.indice {
+    page-break-after: always;
+}
+
+.indice h1 {
+    color: #1d4ed8;
+    font-size: 28pt;
+    border-bottom: 4px solid #1d4ed8;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.indice ol {
+    list-style: none;
+    counter-reset: item;
+}
+
+.indice > ol > li {
+    counter-increment: item;
+    margin-bottom: 12px;
+}
+
+.indice > ol > li::before {
+    content: counter(item) ". ";
+    font-weight: bold;
+    color: #1d4ed8;
+    font-size: 13pt;
+}
+
+.indice a {
+    color: #1f2937;
+    text-decoration: none;
+    font-size: 13pt;
+    font-weight: 600;
+}
+
+.indice a:hover {
+    color: #1d4ed8;
+}
+
+.indice .sub {
+    margin-left: 30px;
+    list-style: none;
+    margin-top: 8px;
+    margin-bottom: 15px;
+}
+
+.indice .sub li {
+    margin-bottom: 6px;
+    color: #4b5563;
+    font-size: 11pt;
+}
+
+/* ============================================================
+   SECCIONES
+   ============================================================ */
+
+.seccion {
+    page-break-before: always;
+    margin-bottom: 40px;
+}
+
+.seccion:first-of-type {
+    page-break-before: auto;
+}
+
+.seccion h1 {
+    color: #1d4ed8;
+    font-size: 24pt;
+    border-bottom: 4px solid #1d4ed8;
+    padding-bottom: 12px;
+    margin-bottom: 25px;
+}
+
+.seccion h2 {
+    color: #1e40af;
+    font-size: 16pt;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #dbeafe;
+}
+
+.seccion h3 {
+    color: #374151;
+    font-size: 13pt;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.seccion p {
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.seccion ul, .seccion ol {
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+.seccion li {
+    margin-bottom: 8px;
+}
+
+/* ============================================================
+   CAJAS DE INFORMACIÓN
+   ============================================================ */
+
+.caja {
+    padding: 15px 18px;
+    border-radius: 8px;
+    margin: 18px 0;
+    border-left: 5px solid;
+}
+
+.caja-info {
+    background: #eff6ff;
+    border-color: #2563eb;
+    color: #1e3a8a;
+}
+
+.caja-importante {
+    background: #fef3c7;
+    border-color: #f59e0b;
+    color: #92400e;
+}
+
+.caja-exito {
+    background: #dcfce7;
+    border-color: #16a34a;
+    color: #166534;
+}
+
+.caja-peligro {
+    background: #fee2e2;
+    border-color: #dc2626;
+    color: #991b1b;
+}
+
+.caja strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 11pt;
+}
+
+/* ============================================================
+   PASOS
+   ============================================================ */
+
+.pasos {
+    counter-reset: paso;
+    margin: 20px 0;
+}
+
+.paso {
+    counter-increment: paso;
+    background: #f9fafb;
+    border-left: 4px solid #1d4ed8;
+    border-radius: 6px;
+    padding: 15px 20px 15px 55px;
+    margin-bottom: 12px;
+    position: relative;
+    font-size: 11pt;
+}
+
+.paso::before {
+    content: counter(paso);
+    position: absolute;
+    left: 15px;
+    top: 15px;
+    width: 28px;
+    height: 28px;
+    background: #1d4ed8;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 13pt;
+}
+
+/* ============================================================
+   ESPACIOS PARA CAPTURAS
+   ============================================================ */
+
+.captura {
+    border: 2px dashed #9ca3af;
+    border-radius: 8px;
+    padding: 60px 20px;
+    margin: 20px 0;
+    text-align: center;
+    color: #6b7280;
+    background: #f9fafb;
+    font-style: italic;
+    font-size: 11pt;
+}
+
+.captura::before {
+    content: "📷 ";
+    font-style: normal;
+    font-size: 20pt;
+}
+
+/* ============================================================
+   TABLAS
+   ============================================================ */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 10pt;
+}
+
+th {
+    background: #1d4ed8;
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+tr:nth-child(even) {
+    background: #f9fafb;
+}
+
+/* ============================================================
+   BADGES DE ROLES
+   ============================================================ */
+
+.badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 10pt;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.badge-admin { background: #dc2626; color: white; }
+.badge-supervisor { background: #0891b2; color: white; }
+.badge-operador { background: #16a34a; color: white; }
+.badge-consulta { background: #6b7280; color: white; }
+
+/* ============================================================
+   IMPRESIÓN
+   ============================================================ */
+
+@media print {
+
+    body {
+        background: white;
+        font-size: 10pt;
+    }
+
+    .contenido {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .portada {
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .portada h1 {
+        font-size: 36pt;
+    }
+
+    .seccion h1 {
+        font-size: 20pt;
+    }
+
+    .seccion h2 {
+        font-size: 14pt;
+    }
+
+    .captura {
+        page-break-inside: avoid;
+    }
+
+    .paso {
+        page-break-inside: avoid;
+    }
+
+    .caja {
+        page-break-inside: avoid;
+    }
+
+    a {
+        color: #1d4ed8;
+        text-decoration: none;
+    }
+}
+
+@page {
+    size: A4;
+    margin: 2cm;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ============================================================
+     PORTADA
+     ============================================================ -->
+
+<div class="portada">
+
+    <div class="portada-content">
+
+        <div class="portada-logo">
+            📋
+        </div>
+
+        <h1>SISTEMA MEDIDAS</h1>
+
+        <h2>Manual de Usuario</h2>
+
+        <div class="portada-info">
+
+            <p>
+                <strong>Versión:</strong>
+                1.0
+            </p>
+
+            <p>
+                <strong>Fecha:</strong>
+                Septiembre 2026
+            </p>
+
+            <p>
+                <strong>Dirigido a:</strong>
+                Personal policial y administrativo
+            </p>
+
+            <p>
+                <strong>Sistema:</strong>
+                Gestión de cédulas de medidas administrativas
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ============================================================
+     CONTENIDO
+     ============================================================ -->
+
+<div class="contenido">
+
+<!-- ============================================================
+     ÍNDICE
+     ============================================================ -->
+
+<div class="indice">
+
+    <h1>Índice de contenido</h1>
+
+    <ol>
+
+        <li>
+            <a href="#introduccion">Introducción</a>
+        </li>
+
+        <li>
+            <a href="#acceso">Acceso al sistema</a>
+            <ul class="sub">
+                <li>Iniciar sesión</li>
+                <li>Cerrar sesión</li>
+                <li>Roles y permisos</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#panel">Panel principal</a>
+        </li>
+
+        <li>
+            <a href="#cedulas">Gestión de cédulas</a>
+            <ul class="sub">
+                <li>Crear nueva cédula</li>
+                <li>Ver detalle de cédula</li>
+                <li>Editar cédula</li>
+                <li>Asignar encargado</li>
+                <li>Cumplimentar cédula</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#seguimiento">Seguimiento</a>
+            <ul class="sub">
+                <li>Cédulas pendientes</li>
+                <li>Cédulas en diligenciamiento</li>
+                <li>Cédulas cumplimentadas</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#whatsapp">Mensajes de WhatsApp</a>
+        </li>
+
+        <li>
+            <a href="#pdf">Archivos PDF</a>
+        </li>
+
+        <li>
+            <a href="#admin">Administración</a>
+            <ul class="sub">
+                <li>Encargados</li>
+                <li>Usuarios</li>
+                <li>Medidas</li>
+                <li>Tipos de medida</li>
+            </ul>
+        </li>
+
+        <li>
+            <a href="#auditoria">Auditoría</a>
+        </li>
+
+        <li>
+            <a href="#historial">Historial de cédulas</a>
+        </li>
+
+        <li>
+            <a href="#faq">Preguntas frecuentes</a>
+        </li>
+
+    </ol>
+
+</div>
+
+<!-- ============================================================
+     1. INTRODUCCIÓN
+     ============================================================ -->
+
+<div class="seccion" id="introduccion">
+
+    <h1>1. Introducción</h1>
+
+    <p>
+        El <strong>Sistema Medidas</strong> es una herramienta informática diseñada para 
+        gestionar de manera integral las cédulas de medidas administrativas del personal 
+        policial. Permite registrar, controlar y hacer seguimiento a cada cédula desde su 
+        ingreso hasta su cumplimentación final.
+    </p>
+
+    <h2>¿Qué permite hacer el sistema?</h2>
+
+    <ul>
+        <li>Registrar nuevas cédulas de medidas administrativas</li>
+        <li>Buscar automáticamente datos del personal policial por DNI</li>
+        <li>Consultar hechos del Sistema Autónomo de Datos (SAD)</li>
+        <li>Asignar encargados de diligenciamiento</li>
+        <li>Generar automáticamente mensajes de WhatsApp</li>
+        <li>Almacenar archivos PDF organizados por efectivo</li>
+        <li>Hacer seguimiento de cédulas pendientes, en proceso y cumplimentadas</li>
+        <li>Auditar todos los movimientos realizados por los usuarios</li>
+    </ul>
+
+    <h2>Beneficios</h2>
+
+    <div class="caja caja-exito">
+        <strong>✓ Mayor control</strong>
+        Toda cédula queda registrada con su historial completo de movimientos.
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Menos errores</strong>
+        Los datos del personal se cargan automáticamente desde la base de datos.
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Más rápido</strong>
+        Los mensajes de WhatsApp se generan automáticamente con formato profesional.
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Organización</strong>
+        Los archivos PDF se guardan automáticamente en carpetas organizadas por efectivo.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     2. ACCESO AL SISTEMA
+     ============================================================ -->
+
+<div class="seccion" id="acceso">
+
+    <h1>2. Acceso al sistema</h1>
+
+    <h2>2.1. Iniciar sesión</h2>
+
+    <p>
+        Para acceder al sistema, debe ingresar su nombre de usuario y contraseña.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Pantalla de inicio de sesión]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Abra el navegador web (Google Chrome, Edge o Firefox).
+        </div>
+
+        <div class="paso">
+            Ingrese la dirección del sistema en la barra de direcciones:
+            <br>
+            <strong>http://10.113.18.107/sistema_medidas/login.php</strong>
+        </div>
+
+        <div class="paso">
+            En el campo <strong>"Usuario"</strong>, ingrese su nombre de usuario.
+        </div>
+
+        <div class="paso">
+            En el campo <strong>"Contraseña"</strong>, ingrese su contraseña personal.
+        </div>
+
+        <div class="paso">
+            Haga clic en el botón <strong>"INGRESAR"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-importante">
+        <strong>⚠️ Importante</strong>
+        Si ingresa mal la contraseña, el sistema le mostrará un mensaje de error. 
+        Después de varios intentos fallidos, consulte con el administrador.
+    </div>
+
+    <h2>2.2. Cerrar sesión</h2>
+
+    <p>
+        Para cerrar sesión de forma segura, haga clic en el botón rojo 
+        <strong>"Cerrar sesión"</strong> que aparece en la parte inferior del menú lateral.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Botón de cerrar sesión en el menú lateral]
+    </div>
+
+    <div class="caja caja-peligro">
+        <strong>🔒 Seguridad</strong>
+        Siempre cierre sesión cuando termine de usar el sistema, especialmente 
+        si está en una computadora compartida.
+    </div>
+
+    <h2>2.3. Roles y permisos</h2>
+
+    <p>
+        El sistema tiene 4 tipos de usuarios con diferentes niveles de acceso:
+    </p>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Rol</th>
+                <th>Permisos</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td><span class="badge badge-admin">ADMIN</span></td>
+                <td>
+                    Control total del sistema. Puede crear usuarios, ver la auditoría, 
+                    y realizar todas las operaciones.
+                </td>
+            </tr>
+
+            <tr>
+                <td><span class="badge badge-supervisor">SUPERVISOR</span></td>
+                <td>
+                    Puede crear y editar cédulas, gestionar encargados, y ver todas las 
+                    secciones excepto Usuarios y Auditoría.
+                </td>
+            </tr>
+
+            <tr>
+                <td><span class="badge badge-operador">OPERADOR</span></td>
+                <td>
+                    Puede crear cédulas, asignar encargados y cumplimentar. 
+                    No puede editar cédulas ni acceder a administración.
+                </td>
+            </tr>
+
+            <tr>
+                <td><span class="badge badge-consulta">CONSULTA</span></td>
+                <td>
+                    Solo puede ver la información. No puede crear, editar ni modificar nada.
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div class="captura">
+        [CAPTURA: Badge de rol en la parte superior del menú]
+    </div>
+
+</div>
+
+<!-- ============================================================
+     3. PANEL PRINCIPAL
+     ============================================================ -->
+
+<div class="seccion" id="panel">
+
+    <h1>3. Panel principal</h1>
+
+    <p>
+        Al iniciar sesión, verá el <strong>Panel principal</strong> con un resumen 
+        general del estado de las cédulas en el sistema.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Pantalla de inicio completa]
+    </div>
+
+    <h2>3.1. Bienvenida</h2>
+
+    <p>
+        En la parte superior encontrará un saludo personalizado con su nombre y cargo.
+    </p>
+
+    <h2>3.2. Tarjetas de estadísticas</h2>
+
+    <p>
+        Las cuatro tarjetas muestran información en tiempo real:
+    </p>
+
+    <ul>
+        <li>
+            <strong>🟡 Pendientes de diligenciar:</strong>
+            Cédulas que todavía no tienen encargado asignado.
+        </li>
+        <li>
+            <strong>🔵 En diligenciamiento:</strong>
+            Cédulas que ya tienen encargado y están en proceso.
+        </li>
+        <li>
+            <strong>🟢 Cumplimentadas:</strong>
+            Cédulas que ya fueron recibidas firmadas.
+        </li>
+        <li>
+            <strong>📊 Total:</strong>
+            Cantidad total de cédulas registradas.
+        </li>
+    </ul>
+
+    <div class="caja caja-info">
+        <strong>💡 Consejo</strong>
+        Puede hacer clic en cualquier tarjeta para ir directamente a ese listado.
+    </div>
+
+    <h2>3.3. Barra de progreso</h2>
+
+    <p>
+        Muestra visualmente el porcentaje de cédulas en cada estado:
+    </p>
+
+    <ul>
+        <li>Verde: Cumplimentadas</li>
+        <li>Azul: En diligenciamiento</li>
+        <li>Amarillo: Pendientes</li>
+    </ul>
+
+    <h2>3.4. Últimas cédulas registradas</h2>
+
+    <p>
+        Muestra las 5 cédulas más recientes con su estado actual. 
+        Puede hacer clic en cualquiera para ver el detalle.
+    </p>
+
+    <h2>3.5. Accesos rápidos</h2>
+
+    <p>
+        Botones para acceder rápidamente a las funciones más usadas.
+    </p>
+
+</div>
+
+<!-- ============================================================
+     4. GESTIÓN DE CÉDULAS
+     ============================================================ -->
+
+<div class="seccion" id="cedulas">
+
+    <h1>4. Gestión de cédulas</h1>
+
+    <h2>4.1. Crear nueva cédula</h2>
+
+    <p>
+        Para registrar una nueva cédula de medida administrativa:
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Formulario de nueva cédula]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            En el menú lateral, haga clic en <strong>"Nueva cédula"</strong>.
+        </div>
+
+        <div class="paso">
+            Complete los datos del caso:
+            <ul style="margin-top: 8px;">
+                <li><strong>Número de caso:</strong> número del expediente</li>
+                <li><strong>Número de hecho:</strong> número del hecho</li>
+                <li><strong>Número de resolución:</strong> resolución asociada</li>
+                <li><strong>Fecha del hecho:</strong> fecha en que ocurrió</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            En la sección <strong>"Involucrado principal"</strong>, ingrese el DNI del efectivo.
+            <br>
+            El sistema cargará automáticamente:
+            <ul style="margin-top: 8px;">
+                <li>Jerarquía</li>
+                <li>Apellido y nombre</li>
+                <li>Dependencia</li>
+                <li>Sub-dependencia</li>
+                <li>Antigüedad</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Seleccione la <strong>caracterización del hecho</strong> (categoría y subcategoría).
+        </div>
+
+        <div class="paso">
+            Elija el <strong>tipo de medida</strong> del listado desplegable.
+        </div>
+
+        <div class="paso">
+            Seleccione el <strong>tiempo</strong> de la medida (meses).
+        </div>
+
+        <div class="paso">
+            Marque el <strong>semáforo de la medida</strong>:
+            <ul style="margin-top: 8px;">
+                <li>🟢 POSITIVA</li>
+                <li>🟡 INTERMEDIA</li>
+                <li>🔴 NEGATIVA</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Escriba la <strong>descripción del hecho</strong>.
+        </div>
+
+        <div class="paso">
+            (Opcional) Adjunte el archivo PDF de la cédula.
+        </div>
+
+        <div class="paso">
+            (Opcional) Agregue <strong>involucrados adicionales</strong> si el caso tiene más de uno.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR CÉDULA"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-info">
+    <strong>💡 Búsqueda automática por DNI</strong>
+    Al salir del campo DNI, el sistema buscará los datos del efectivo y los 
+    hechos registrados en el Sistema Autónomo de Datos (SAD) automáticamente.
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Mensajes de WhatsApp automáticos</strong>
+        Una vez guardada la cédula, se generará automáticamente un mensaje de 
+        WhatsApp para cada involucrado con el formato correspondiente.
+    </div>
+
+    <div class="caja caja-importante">
+        <strong>⚠️ Nombre del PDF</strong>
+        El sistema le mostrará el nombre con el que debe renombrar el archivo PDF 
+        antes de subirlo: <strong>fecha - medida - A CUMPLIMENTAR.pdf</strong>
+    </div>
+
+    <h2>4.2. Ver detalle de cédula</h2>
+
+    <p>
+        Para ver el detalle completo de una cédula:
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Pantalla de detalle de cédula]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"Cédulas"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            Busque la cédula en el listado y haga clic en <strong>"Ver"</strong>.
+        </div>
+
+        <div class="paso">
+            Verá toda la información de la cédula:
+            <ul style="margin-top: 8px;">
+                <li>Datos del caso</li>
+                <li>Involucrados</li>
+                <li>Medidas</li>
+                <li>Cadena de encargados</li>
+                <li>Historial completo de movimientos</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <h2>4.3. Editar cédula</h2>
+
+    <p>
+        Solo los usuarios con rol <span class="badge badge-admin">ADMIN</span> 
+        o <span class="badge badge-supervisor">SUPERVISOR</span> pueden editar cédulas.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Formulario de edición de cédula]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            En el detalle de la cédula, haga clic en <strong>"✏️ Editar cédula"</strong>.
+        </div>
+
+        <div class="paso">
+            Modifique los campos que necesite:
+            <ul style="margin-top: 8px;">
+                <li>Número de hecho</li>
+                <li>Número de resolución</li>
+                <li>Fecha del hecho</li>
+                <li>Caracterización</li>
+                <li>Color semáforo</li>
+                <li>Descripción del hecho</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR CAMBIOS"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-info">
+        <strong>💡 Nota</strong>
+        Los datos de involucrados y medidas no se pueden editar desde aquí. 
+        Para modificarlos, debe crear una nueva cédula.
+    </div>
+
+    <h2>4.4. Asignar encargado</h2>
+
+    <p>
+        Cuando una cédula está pendiente, debe asignarse a un encargado para su diligenciamiento.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Pantalla de asignar encargado]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"Pendientes de diligenciar"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            Busque la cédula y haga clic en <strong>"Asignar encargado"</strong>.
+        </div>
+
+        <div class="paso">
+            Seleccione el tipo de movimiento:
+            <ul style="margin-top: 8px;">
+                <li><strong>Primera asignación:</strong> si es la primera vez</li>
+                <li><strong>Transferir a otro encargado:</strong> si cambia de responsable</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Seleccione el encargado del listado desplegable.
+        </div>
+
+        <div class="paso">
+            (Opcional) Puede crear un <strong>nuevo encargado</strong> haciendo clic en 
+            el botón <strong>"+ Nuevo encargado"</strong>.
+        </div>
+
+        <div class="paso">
+            (Opcional) Agregue observaciones.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"Guardar movimiento"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ El estado cambia automáticamente</strong>
+        Al asignar un encargado, la cédula pasa a estado 
+        <strong>"EN DILIGENCIAMIENTO"</strong> y aparece en la sección correspondiente.
+    </div>
+
+    <h2>4.5. Cumplimentar cédula</h2>
+
+    <p>
+        Cuando el encargado devuelve la cédula firmada, debe registrarse la cumplimentación.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Pantalla de cumplimentar cédula]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"En diligenciamiento"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            Busque la cédula y haga clic en <strong>"Cumplimentar"</strong>.
+        </div>
+
+        <div class="paso">
+            Ingrese la <strong>fecha y hora de recepción firmada</strong>.
+        </div>
+
+        <div class="paso">
+            (Opcional) Agregue observaciones.
+        </div>
+
+        <div class="paso">
+            (Opcional) Adjunte el PDF de la cédula cumplimentada.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"REGISTRAR CUMPLIMENTACIÓN"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Nuevo mensaje de WhatsApp</strong>
+        Se generará automáticamente un nuevo mensaje de WhatsApp con la fecha 
+        de cumplimentación y el estado "CUMPLIMENTADA".
+    </div>
+
+</div>
+
+<!-- ============================================================
+     5. SEGUIMIENTO
+     ============================================================ -->
+
+<div class="seccion" id="seguimiento">
+
+    <h1>5. Seguimiento</h1>
+
+    <h2>5.1. Cédulas pendientes</h2>
+
+    <p>
+        Muestra todas las cédulas que todavía no tienen encargado asignado.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de cédulas pendientes]
+    </div>
+
+    <div class="caja caja-info">
+        <strong>💡 Indicadores visuales</strong>
+        <ul style="margin-top: 8px;">
+            <li>🟡 Badge amarillo: Pendiente</li>
+            <li>🔴 "Sin encargado": requiere asignación</li>
+            <li>🟢 "N encargado(s)": ya tiene asignación</li>
+        </ul>
+    </div>
+
+    <h2>5.2. Cédulas en diligenciamiento</h2>
+
+    <p>
+        Cédulas que ya tienen encargado asignado y están en proceso.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de cédulas en diligenciamiento]
+    </div>
+
+    <h2>5.3. Cédulas cumplimentadas</h2>
+
+    <p>
+        Cédulas que ya fueron recibidas firmadas y finalizaron su proceso.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de cédulas cumplimentadas]
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Historial completo</strong>
+        Cada cédula mantiene su historial completo con todos los movimientos 
+        realizados desde su creación.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     6. MENSAJES DE WHATSAPP
+     ============================================================ -->
+
+<div class="seccion" id="whatsapp">
+
+    <h1>6. Mensajes de WhatsApp</h1>
+
+    <p>
+        El sistema genera automáticamente mensajes formateados para WhatsApp 
+        con la información de cada cédula.
+    </p>
+
+    <h2>6.1. Estructura del mensaje</h2>
+
+    <p>
+        El mensaje tiene el siguiente formato:
+    </p>
+
+    <div class="caja caja-info">
+        <strong>Ejemplo de mensaje</strong>
+        <pre style="white-space: pre-wrap; font-family: Consolas, monospace; font-size: 10pt; line-height: 1.5; margin-top: 10px;">
+🟢 *PASE A SITUACIÓN PASIVA POR EL TÉRMINO DE TRES (3) MESES*
+
+*1*. HECHO Nº 4362/26
+*2*. CASO N° 12332
+*3*. RS Nº 1512/26
+*4*. FECHA 04/09/2026
+*5*. CABO PRIMERO CARDOZO JULIETA EVELINA
+*6*. DNI Nº 39079616
+*7*. C.A.P. 11 - DTTO JUDICIAL POLICIAL 11
+*8*. 1.L) OTROS DELITOS
+*9*. *A CUMPLIMENTAR*
+
+La femenina habría retirado un perfume...</pre>
+    </div>
+
+    <h2>6.2. Estados del punto 9</h2>
+
+    <ul>
+        <li>
+            <strong>A CUMPLIMENTAR:</strong> cuando se crea la cédula nueva
+        </li>
+        <li>
+            <strong>CUMPLIMENTADA:</strong> cuando se registra la recepción firmada
+        </li>
+    </ul>
+
+    <h2>6.3. Cómo usar el mensaje</h2>
+
+    <div class="captura">
+        [CAPTURA: Botones de copiar y enviar WhatsApp]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Haga clic en <strong>"📋 Copiar mensaje"</strong> para copiar al portapapeles.
+        </div>
+
+        <div class="paso">
+            Aparecerá un aviso verde confirmando la copia.
+        </div>
+
+        <div class="paso">
+            Pegue el mensaje en WhatsApp Web o en la aplicación.
+        </div>
+
+        <div class="paso">
+            Alternativamente, haga clic en <strong>"📱 Enviar por WhatsApp"</strong> para 
+            abrir directamente WhatsApp Web con el mensaje.
+        </div>
+
+    </div>
+
+    <div class="caja caja-info">
+        <strong>💡 Múltiples involucrados</strong>
+        Si la cédula tiene varios involucrados, se generará un mensaje 
+        individual para cada uno con sus datos correspondientes.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     7. ARCHIVOS PDF
+     ============================================================ -->
+
+<div class="seccion" id="pdf">
+
+    <h1>7. Archivos PDF</h1>
+
+    <p>
+        El sistema guarda automáticamente los archivos PDF de las cédulas 
+        en carpetas organizadas por efectivo.
+    </p>
+
+    <h2>7.1. Estructura de carpetas</h2>
+
+    <p>
+        Los archivos se organizan de la siguiente manera:
+    </p>
+
+    <div class="caja caja-info">
+        <strong>Ejemplo de estructura</strong>
+        <pre style="font-family: Consolas, monospace; font-size: 10pt; line-height: 1.5; margin-top: 10px;">
+archivos/
+├── Y/
+│   └── YABALI JOSE RODRIGO/
+│       ├── 11-09-26 - SIT. PASIVA - A CUMPLIMENTAR/
+│       │   └── 11-09-26 - SIT. PASIVA - A CUMPLIMENTAR.pdf
+│       └── 12-09-26 - SIT. PASIVA - CUMPLIMENTADA/
+│           └── 12-09-26 - SIT. PASIVA - CUMPLIMENTADA.pdf</pre>
+    </div>
+
+    <h2>7.2. Nombres sugeridos</h2>
+
+    <p>
+        Al subir un PDF, el sistema le mostrará el nombre con el que debería 
+        renombrar el archivo antes de subirlo:
+    </p>
+
+    <div class="caja caja-importante">
+        <strong>Formato del nombre</strong>
+        <strong>DD-MM-AA - MEDIDA - ESTADO.pdf</strong>
+        <br><br>
+        Ejemplo:
+        <br>
+        <code>11-09-26 - SIT. PASIVA - A CUMPLIMENTAR.pdf</code>
+    </div>
+
+    <h2>7.3. Subir archivos PDF</h2>
+
+    <div class="captura">
+        [CAPTURA: Campo de subida de PDF]
+    </div>
+
+    <div class="pasos">
+
+        <div class="paso">
+            <strong>Al crear una cédula:</strong> en el formulario de "Nueva cédula", 
+            busque la sección <strong>"📄 Archivo PDF de la cédula"</strong>.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"Seleccionar archivo"</strong> y elija el PDF.
+        </div>
+
+        <div class="paso">
+            <strong>Al cumplimentar:</strong> en el formulario de cumplimentación, 
+            hay un campo similar para subir el PDF firmado.
+        </div>
+
+        <div class="paso">
+            El sistema guardará el archivo automáticamente en la carpeta del involucrado.
+        </div>
+
+    </div>
+
+    <div class="caja caja-exito">
+        <strong>✓ Múltiples involucrados</strong>
+        Si la cédula tiene varios involucrados, se guardará una copia del PDF 
+        en la carpeta de cada uno.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     8. ADMINISTRACIÓN
+     ============================================================ -->
+
+<div class="seccion" id="admin">
+
+    <h1>8. Administración</h1>
+
+    <p>
+        Esta sección solo está disponible para usuarios con rol 
+        <span class="badge badge-admin">ADMIN</span> o 
+        <span class="badge badge-supervisor">SUPERVISOR</span>.
+    </p>
+
+    <h2>8.1. Encargados</h2>
+
+    <p>
+        Los encargados son las personas responsables del diligenciamiento 
+        de las cédulas.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de encargados]
+    </div>
+
+    <h3>Crear un nuevo encargado</h3>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"Encargados"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"+ Nuevo encargado"</strong>.
+        </div>
+
+        <div class="paso">
+            Complete los datos:
+            <ul style="margin-top: 8px;">
+                <li>Jerarquía</li>
+                <li>Apellido y nombre</li>
+                <li>Teléfono</li>
+                <li>Estado (Activo/Inactivo)</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR ENCARGADO"</strong>.
+        </div>
+
+    </div>
+
+    <h3>Editar un encargado</h3>
+
+    <div class="pasos">
+
+        <div class="paso">
+            En el listado, haga clic en el botón <strong>"Editar"</strong> del encargado.
+        </div>
+
+        <div class="paso">
+            Modifique los datos necesarios.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR CAMBIOS"</strong>.
+        </div>
+
+    </div>
+
+    <div class="caja caja-info">
+        <strong>💡 Crear encargado rápido</strong>
+        Al asignar un encargado a una cédula, puede crear uno nuevo directamente 
+        desde el modal <strong>"+ Nuevo encargado"</strong> sin salir de la pantalla.
+    </div>
+
+    <h2>8.2. Usuarios</h2>
+
+    <p>
+        Solo el rol <span class="badge badge-admin">ADMIN</span> puede gestionar usuarios.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de usuarios]
+    </div>
+
+    <h3>Crear un nuevo usuario</h3>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"Usuarios"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"+ Nuevo usuario"</strong>.
+        </div>
+
+        <div class="paso">
+            Complete los datos:
+            <ul style="margin-top: 8px;">
+                <li>Nombre de usuario (para iniciar sesión)</li>
+                <li>Contraseña (mínimo 6 caracteres)</li>
+                <li>Confirmar contraseña</li>
+                <li>Nombre y apellido</li>
+                <li>Jerarquía</li>
+                <li><strong>Rol:</strong> admin, supervisor, operador o consulta</li>
+                <li>Estado (Activo/Inactivo)</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR USUARIO"</strong>.
+        </div>
+
+    </div>
+
+    <h3>Editar un usuario</h3>
+
+    <div class="pasos">
+
+        <div class="paso">
+            En el listado, haga clic en <strong>"Editar"</strong>.
+        </div>
+
+        <div class="paso">
+            Modifique los datos necesarios.
+        </div>
+
+        <div class="paso">
+            Si desea cambiar la contraseña, complete los campos de la sección 
+            "Cambiar contraseña".
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"GUARDAR CAMBIOS"</strong>.
+        </div>
+
+    </div>
+
+    <h2>8.3. Medidas</h2>
+
+    <p>
+        Listado general de todas las medidas registradas en el sistema con filtros 
+        por caso, DNI, categoría y tipo.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de medidas]
+    </div>
+
+    <h2>8.4. Tipos de medida</h2>
+
+    <p>
+        Administración de los tipos de medida disponibles en el sistema.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Listado de tipos de medida]
+    </div>
+
+    <h3>Crear un nuevo tipo de medida</h3>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya a <strong>"Tipos de medida"</strong> en el menú lateral.
+        </div>
+
+        <div class="paso">
+            En el formulario de la izquierda, complete:
+            <ul style="margin-top: 8px;">
+                <li>Nombre (ej: "SIT. PASIVA")</li>
+                <li>Categoría: INICIAL, PRÓRROGA, CAMBIO, LEVANTAMIENTO o EXCEPCIONAL</li>
+                <li>Activo (sí/no)</li>
+            </ul>
+        </div>
+
+        <div class="paso">
+            Haga clic en <strong>"CREAR TIPO"</strong>.
+        </div>
+
+    </div>
+
+    <h3>Activar/Desactivar tipo de medida</h3>
+
+    <p>
+        En el listado, use los botones <strong>"Activar"</strong> o 
+        <strong>"Desactivar"</strong> según corresponda.
+    </p>
+
+</div>
+
+<!-- ============================================================
+     9. AUDITORÍA
+     ============================================================ -->
+
+<div class="seccion" id="auditoria">
+
+    <h1>9. Auditoría</h1>
+
+    <p>
+        La auditoría registra <strong>todos los movimientos</strong> realizados 
+        por los usuarios en el sistema. Solo accesible para 
+        <span class="badge badge-admin">ADMIN</span>.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Página de auditoría con filtros]
+    </div>
+
+    <h2>9.1. Qué se registra</h2>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>Acción</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td><span style="background:#dcfce7;color:#166534;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">CREAR</span></td>
+                <td>Se creó un registro nuevo</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#fef3c7;color:#92400e;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">EDITAR</span></td>
+                <td>Se modificó un registro existente</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#dbeafe;color:#1e40af;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">LOGIN</span></td>
+                <td>Inicio de sesión</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#e5e7eb;color:#374151;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">LOGOUT</span></td>
+                <td>Cierre de sesión</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#fecaca;color:#7f1d1d;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">LOGIN_FALLIDO</span></td>
+                <td>Intento fallido de inicio de sesión</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#cffafe;color:#0e7490;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">ASIGNAR</span></td>
+                <td>Se asignó un encargado</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#e0e7ff;color:#4338ca;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">TRANSFERIR</span></td>
+                <td>Se transfirió a otro encargado</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#d1fae5;color:#065f46;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">CUMPLIMENTAR</span></td>
+                <td>Se cumplimentó una cédula</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#fce7f3;color:#9d174d;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">SUBIR_PDF</span></td>
+                <td>Se subió un archivo PDF</td>
+            </tr>
+
+            <tr>
+                <td><span style="background:#f3f4f6;color:#374151;padding:2px 8px;border-radius:10px;font-size:9pt;font-weight:bold;">BUSCAR</span></td>
+                <td>Búsqueda de personal o hechos SAD</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <h2>9.2. Filtros disponibles</h2>
+
+    <ul>
+        <li><strong>Buscar:</strong> texto libre en descripción, usuario o IP</li>
+        <li><strong>Usuario:</strong> filtrar por nombre del usuario</li>
+        <li><strong>Módulo:</strong> cedulas, encargados, usuarios, archivos, etc.</li>
+        <li><strong>Acción:</strong> filtrar por tipo de acción</li>
+        <li><strong>Desde/Hasta:</strong> rango de fechas</li>
+    </ul>
+
+    <div class="caja caja-info">
+        <strong>💡 Registros mostrados</strong>
+        Por defecto se muestran los últimos 500 movimientos. Use los filtros para 
+        reducir los resultados.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     10. HISTORIAL DE CÉDULAS
+     ============================================================ -->
+
+<div class="seccion" id="historial">
+
+    <h1>10. Historial de cédulas</h1>
+
+    <p>
+        Cada cédula tiene un historial completo de todos los movimientos 
+        realizados desde su creación.
+    </p>
+
+    <div class="captura">
+        [CAPTURA: Página de historial completo de cédula]
+    </div>
+
+    <h2>10.1. Cómo acceder</h2>
+
+    <div class="pasos">
+
+        <div class="paso">
+            Vaya al detalle de cualquier cédula.
+        </div>
+
+        <div class="paso">
+            Haga clic en el botón <strong>"📜 Ver historial completo"</strong>.
+        </div>
+
+        <div class="paso">
+            Verá el resumen de la cédula y todos sus movimientos cronológicos.
+        </div>
+
+    </div>
+
+    <h2>10.2. Qué incluye</h2>
+
+    <ul>
+        <li>Resumen de la cédula (caso, estado, fechas)</li>
+        <li>Estadísticas (total de movimientos, primer y último movimiento)</li>
+        <li><strong>Timeline:</strong> todos los movimientos con fecha, acción, 
+            descripción y usuario responsable</li>
+        <li>Para admin: auditoría técnica relacionada</li>
+    </ul>
+
+</div>
+
+<!-- ============================================================
+     11. PREGUNTAS FRECUENTES
+     ============================================================ -->
+
+<div class="seccion" id="faq">
+
+    <h1>11. Preguntas frecuentes</h1>
+
+    <h2>¿Cómo recupero mi contraseña?</h2>
+    <p>
+        Contacte al administrador del sistema para que le asigne una nueva 
+        contraseña desde el módulo de Usuarios.
+    </p>
+
+    <h2>¿Puedo editar una cédula después de crearla?</h2>
+    <p>
+        Sí, si su rol es <span class="badge badge-admin">ADMIN</span> o 
+        <span class="badge badge-supervisor">SUPERVISOR</span>. Puede editar 
+        algunos campos como número de hecho, resolución, caracterización, etc.
+    </p>
+
+    <h2>¿Qué pasa si me equivoco al asignar un encargado?</h2>
+    <p>
+        Puede transferir la cédula a otro encargado. El sistema registra el cambio 
+        en el historial sin eliminar la asignación anterior.
+    </p>
+
+    <h2>¿Cómo genero el mensaje de WhatsApp?</h2>
+    <p>
+        El mensaje se genera automáticamente al guardar la cédula. En la pantalla 
+        de éxito, encontrará el botón <strong>"📋 Copiar mensaje"</strong>.
+    </p>
+
+    <h2>¿Dónde se guardan los PDFs?</h2>
+    <p>
+        En el servidor, dentro de la carpeta <strong>archivos/</strong> organizada 
+        por letra del apellido, nombre del efectivo y medida.
+    </p>
+
+    <h2>¿Puedo buscar por DNI?</h2>
+    <p>
+        Sí, en el formulario de nueva cédula. Al ingresar el DNI, se cargan 
+        automáticamente los datos del efectivo y los hechos del SAD.
+    </p>
+
+    <h2>¿Cuántos usuarios puedo crear?</h2>
+    <p>
+        No hay límite. Cada usuario puede tener un rol diferente según sus 
+        responsabilidades.
+    </p>
+
+    <h2>¿Qué es la auditoría?</h2>
+    <p>
+        Es un registro automático de todos los movimientos del sistema. 
+        Permite saber quién hizo qué, cuándo y desde qué IP.
+    </p>
+
+    <h2>¿Cómo contacto a soporte?</h2>
+    <p>
+        Contacte al administrador del sistema o al área de informática.
+    </p>
+
+    <div class="caja caja-info">
+        <strong>📞 Soporte técnico</strong>
+        Para problemas técnicos, errores o sugerencias, contacte al administrador 
+        del sistema.
+    </div>
+
+</div>
+
+<!-- ============================================================
+     PIE DE PÁGINA
+     ============================================================ -->
+
+<div style="text-align: center; padding: 40px 0; border-top: 2px solid #e5e7eb; margin-top: 40px; color: #6b7280; font-size: 10pt;">
+
+    <p>
+        <strong>SISTEMA MEDIDAS</strong>
+    </p>
+
+    <p>
+        Manual de Usuario - Versión 1.0
+    </p>
+
+    <p>
+        Septiembre 2026
+    </p>
+
+    <p style="margin-top: 20px;">
+        <em>Fin del manual</em>
+    </p>
+
+</div>
+
+</div>
+<!-- fin .contenido -->
+
+</body>
+
+</html>
